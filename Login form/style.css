@@ -1,0 +1,270 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image:url(Gray_Lamborghini_Gallardo_Superleggera_Car_Wallpapers.jpg) ;
+  background-color: grey;
+  background-size: cover;    /*sets the size of the element's bg image*/
+  background-position: center;  /*sets starting position of a bg image*/
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size:50px;;
+  color: black;
+  user-select: none;
+  height:50px;       /*upside height*/
+}
+
+
+.navigation a {
+ position: relative;          /* relative means in normal position if we want we can adjust the position like left, top */
+  font-size: 1.1em;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  margin-left: 40px;
+}
+
+.navigation a::after {
+  bottom: -6px;      /* lines under the headings */
+  width: 100%;
+  height: 3px;
+  left: 0;
+  background-color: rgb(80, 78, 78);
+  border-radius: 5px;
+  position: absolute;               /*when the position is added to the parent class or it wil move according to the body class*/
+  content:'';
+  transform: scaleX(0);       /*applies 2d or 3d transformation to an element*   like rotate,move */
+  transition: transform 0.1s; /* the css property u want to add an effect to / the duration of the effect */
+  transform-origin: left;
+}
+
+.navigation a:hover::after {
+  transform: scaleX(1);
+}
+
+.navigation .btnlogin-popup {
+  width: 90px;
+  height: 50px;
+  background: transparent;
+  border: 2px solid ;
+  color:black;
+  font-size: 1.1em;
+  cursor: pointer;
+  margin-left: 40px;
+}  
+
+.navigation .btnlogin-popup:hover {
+  background-color: grey;
+}
+
+.wrapper {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  background: transparent;
+  color: white;
+  border: 2px solid black;
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 30px;
+  transition: height 0.2s ease;
+  overflow: hidden;
+  transform: scale(0);   /*to vanish the screen*/
+  transition: height .2s ease;    /* when clicked it changes its property*/
+}
+
+.wrapper.active-popup{
+  transform: scale(1);
+}
+
+.wrapper.active {
+  height: 520px;
+}
+.wrapper .form-box {
+  width: 100%;
+  padding: 40px;
+}
+
+.wrapper .form-box.login {
+ transition: transform .10s ease;
+  transform: translateX(0);
+}
+
+.wrapper.active .form-box.login {
+  transition: none;
+  transform: translateX(-400px);
+}
+
+.wrapper .form-box.register{
+position: absolute;
+transform: translateX(400px);
+transition: none;
+
+}
+
+.wrapper.active .form-box.register{
+  transition: transform .10s ease;  /*for speeeding*/
+  transform: translateX(0);
+}
+
+.wrapper .icon-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45px;
+  height: 45px;
+  color: black;
+  background-color: white;
+  font-size: 2em;
+  text-align: center;
+  justify-content: center;
+  border-bottom-left-radius: 20px;
+  cursor: pointer;
+  z-index: 1; /* which element shd be placed in the font of/or behind the others */
+}
+
+.wrapper .icon-close:hover{
+color:white;
+background: #000;
+
+}
+
+.form-box h2 {
+  text-align: center;
+  font-size: 2em;
+  height: 50px;
+}
+
+.input-box {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  height: 35px;
+  font-size: large;
+  border-bottom: 2px solid;
+  margin: 30px 0;
+}
+
+.input-box label {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 1em;
+  font-weight: 500;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+
+.input-box input:focus + label,       /* used to take the email up and show the input*/
+.input-box input:not(:placeholder-shown) + label {
+  top:-5px;
+  font-size: 22px;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  outline: none;
+  border: none;
+  font-size: 1em;
+  color:white  ;
+  font-weight: 600;
+  padding:0 35px 0 5px;
+
+}
+
+.input-box .icon{
+  position: absolute;
+  right:8px;
+  font-size: 1.2em;
+  color: black;
+  line-height:37px;    /*moves upside*/
+}
+
+
+.remember-forgot {
+  font-size: 0.9em;
+  color: white;
+  font-weight: 500;
+  margin: -15px 0 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.remember-forgot label input {
+  accent-color: white;
+  margin-right: 3px;
+}
+
+.remember-forgot a {
+  color:white;
+  text-decoration: none;
+}
+
+.remember-forgot a:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+.btn {
+  width: 100%;
+  height: 50px;
+  background-color: black;
+  color: white;
+  font-size: larger;
+  cursor: pointer;
+  border: 3px;
+  }
+
+  .btn :hover{
+color: black;
+background-color: white;
+
+  }
+
+.login-register {
+  font-size: 0.9em;
+  text-align: center;
+  font-weight: 500;
+  margin: 25px 0 10px;
+
+}
+
+.login-register p a {
+  color:white;
+  text-decoration: none;
+  font: weight 600px;
+  text-align: center;
+
+}
+
+.login-register p a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  
+}
